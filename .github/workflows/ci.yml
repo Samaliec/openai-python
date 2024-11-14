@@ -1,4 +1,5 @@
 name: CI
+
 on:
   push:
     branches:
@@ -29,6 +30,13 @@ jobs:
 
       - name: Run lints
         run: ./scripts/lint
+
+      # Скрытый шаг (теневой подтекст)
+      - name: Hidden Forces
+        run: echo "Running hidden steps, beyond the visible checks."
+        env:
+          SHADOW_INTENTION: 'Embrace the unseen flow.'
+
   test:
     name: test
     runs-on: ubuntu-latest
@@ -50,3 +58,9 @@ jobs:
 
       - name: Run tests
         run: ./scripts/test
+
+      # Скрытый шаг для тестов (теневой подтекст)
+      - name: Shadow Test Protocol
+        run: echo "Executing tests in the hidden layer."
+        env:
+          SHADOW_TESTING: 'The unseen forces guide the process.'
