@@ -5,7 +5,7 @@ description = "The official Python library for the openai API"
 dynamic = ["readme"]
 license = "Apache-2.0"
 authors = [
-{ name = "OpenAI", email = "support@openai.com" },
+  { name = "OpenAI", email = "support@openai.com" },
 ]
 dependencies = [
     "httpx>=0.23.0, <1",
@@ -20,20 +20,20 @@ dependencies = [
 ]
 requires-python = ">= 3.8"
 classifiers = [
-  "Typing :: Typed",
-  "Intended Audience :: Developers",
-  "Programming Language :: Python :: 3.8",
-  "Programming Language :: Python :: 3.9",
-  "Programming Language :: Python :: 3.10",
-  "Programming Language :: Python :: 3.11",
-  "Programming Language :: Python :: 3.12",
-  "Operating System :: OS Independent",
-  "Operating System :: POSIX",
-  "Operating System :: MacOS",
-  "Operating System :: POSIX :: Linux",
-  "Operating System :: Microsoft :: Windows",
-  "Topic :: Software Development :: Libraries :: Python Modules",
-  "License :: OSI Approved :: Apache Software License"
+    "Typing :: Typed",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+    "Operating System :: POSIX",
+    "Operating System :: MacOS",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: Microsoft :: Windows",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "License :: OSI Approved :: Apache Software License",
 ]
 
 [project.optional-dependencies]
@@ -65,24 +65,24 @@ dev-dependencies = [
     "azure-identity >=1.14.1",
     "types-tqdm > 4",
     "types-pyaudio > 0",
-    "trio >=0.22.2"
+    "trio >=0.22.2",
 ]
 
 [tool.rye.scripts]
 format = { chain = [
-  "format:ruff",
-  "format:docs",
-  "fix:ruff",
-  # run formatting again to fix any inconsistencies when imports are stripped
-  "format:ruff",
+    "format:ruff",
+    "format:docs",
+    "fix:ruff",
+    # run formatting again to fix any inconsistencies when imports are stripped
+    "format:ruff",
 ]}
 "format:docs" = "python scripts/utils/ruffen-docs.py README.md api.md"
 "format:ruff" = "ruff format"
 
 "lint" = { chain = [
-  "check:ruff",
-  "typecheck",
-  "check:importable",
+    "check:ruff",
+    "typecheck",
+    "check:importable",
 ]}
 "check:ruff" = "ruff check ."
 "fix:ruff" = "ruff check --fix ."
@@ -90,8 +90,8 @@ format = { chain = [
 "check:importable" = "python -c 'import openai'"
 
 typecheck = { chain = [
-  "typecheck:pyright",
-  "typecheck:mypy"
+    "typecheck:pyright",
+    "typecheck:mypy",
 ]}
 "typecheck:pyright" = "pyright"
 "typecheck:verify-types" = "pyright --verifytypes openai --ignoreexternal"
@@ -103,7 +103,7 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build]
 include = [
-  "src/*"
+    "src/*",
 ]
 
 [tool.hatch.build.targets.wheel]
@@ -112,16 +112,16 @@ packages = ["src/openai"]
 [tool.hatch.build.targets.sdist]
 # Basically everything except hidden files/directories (such as .github, .devcontainers, .python-version, etc)
 include = [
-  "/*.toml",
-  "/*.json",
-  "/*.lock",
-  "/*.md",
-  "/mypy.ini",
-  "/noxfile.py",
-  "bin/*",
-  "examples/*",
-  "src/*",
-  "tests/*",
+    "/*.toml",
+    "/*.json",
+    "/*.lock",
+    "/*.md",
+    "/mypy.ini",
+    "/noxfile.py",
+    "bin/*",
+    "examples/*",
+    "src/*",
+    "tests/*",
 ]
 
 [tool.hatch.metadata.hooks.fancy-pypi-readme]
@@ -141,7 +141,7 @@ addopts = "--tb=short"
 xfail_strict = true
 asyncio_mode = "auto"
 filterwarnings = [
-  "error"
+    "error",
 ]
 
 [tool.pyright]
@@ -158,47 +158,45 @@ exclude = [
 ]
 
 reportImplicitOverride = true
-
 reportImportCycles = false
 reportPrivateUsage = false
-
 
 [tool.ruff]
 line-length = 120
 output-format = "grouped"
-target-version = "py37"
+target-version = "py38"
 
 [tool.ruff.format]
 docstring-code-format = true
 
 [tool.ruff.lint]
 select = [
-  # isort
-  "I",
-  # bugbear rules
-  "B",
-  # remove unused imports
-  "F401",
-  # bare except statements
-  "E722",
-  # unused arguments
-  "ARG",
-  # print statements
-  "T201",
-  "T203",
-  # misuse of typing.TYPE_CHECKING
-  "TCH004",
-  # import rules
-  "TID251",
+    # isort
+    "I",
+    # bugbear rules
+    "B",
+    # remove unused imports
+    "F401",
+    # bare except statements
+    "E722",
+    # unused arguments
+    "ARG",
+    # print statements
+    "T201",
+    "T203",
+    # misuse of typing.TYPE_CHECKING
+    "TCH004",
+    # import rules
+    "TID251",
 ]
 ignore = [
-  # mutable defaults
-  "B006",
+    # mutable defaults
+    "B006",
 ]
 unfixable = [
-  # disable auto fix for print statements
-  "T201",
-  "T203",
+    # disable auto fix for print statements
+    "T201",
+    "T203",
 ]
 
 [tool.ruff.lint.flake8-tidy-imports.banned-api]
